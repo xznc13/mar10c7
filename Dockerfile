@@ -30,14 +30,16 @@ RUN odbcinst -i -d -f /etc/odbcinst.ini
 RUN rm /tmp/oraclient.tar.gz
 RUN /usr/sbin/useradd vagrant -u 500 -U -G wheel
 RUN echo 'root:RedH0und$' | chpasswd && echo 'vagrant:vagrant' | chpasswd
+
 # RUN /etc/rc.d/init.d/sshd start
 
 # Add VOLUME to allow backup of data
-
 VOLUME ["/var/lib/mysql"]
 
 # Set TERM env to avoid mysql client error message "TERM environment variable not set" when running from inside the container
 ENV TERM xterm
+# set ROVERMODE env to a default value of PROD - can be changed at run time
+ENV ROVERMODE PROD
 
 EXPOSE 3306 22
 CMD ["/run.sh"]
