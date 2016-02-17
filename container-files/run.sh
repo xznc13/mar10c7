@@ -27,13 +27,24 @@ secure_and_tidy_db
 show_db_status
 create_admin_user
 
-for f in /initdbscripts/*; do
+for f in /initdbscripts/common/*; do
   case "$f" in
     *.sh)     echo "$0: running $f"; . "$f" ;;
     *.sql)    echo "$0: running $f"; /usr/bin/mysql < "$f"; echo ;;
     *.sql.gz) echo "$0: running $f"; gunzip -c "$f" | /usr/bin/mysql ; echo ;;
     *)        echo "$0: ignoring $f" ;;
   esac
+  
+for f in /initdbscripts/${ROVERMODE}/*; do
+  case "$f" in
+    *.sh)     echo "$0: running $f"; . "$f" ;;
+    *.sql)    echo "$0: running $f"; /usr/bin/mysql < "$f"; echo ;;
+    *.sql.gz) echo "$0: running $f"; gunzip -c "$f" | /usr/bin/mysql ; echo ;;
+    *)        echo "$0: ignoring $f" ;;
+  esac
+echo
+done
+
 echo
 done
 
