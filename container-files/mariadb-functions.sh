@@ -87,10 +87,7 @@ function create_admin_user() {
 
   echo "========================================================================"
   echo "    You can now connect to this MariaDB Server using:                   "
-  echo "    mysql -u$MARIADB_USER -p$MARIADB_PASS -h<host>                      "
-  echo "                                                                        "
-  echo "    For security reasons, you might want to change the above password.  "
-  echo "    The 'root' user has no password but only allows local connections   "
+  echo "    mysql -uMARIADB_USER -pMARIADB_PASS -h<host>                      "
   echo "========================================================================"
 }
 
