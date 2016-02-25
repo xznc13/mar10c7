@@ -40,6 +40,7 @@ VOLUME ["/var/lib/mysql"]
 ENV TERM xterm
 # set ROVERMODE env to a default value of PROD - can be changed at run time
 ENV ROVERMODE PROD
+ENV DBNAME Rover
 
 EXPOSE 3306 22
 CMD ["/run.sh"]
