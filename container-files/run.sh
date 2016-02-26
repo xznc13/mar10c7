@@ -43,6 +43,8 @@ for f in /initdbscripts/common/*; do
     ;;
     *)        echo "$0: ignoring $f" ;;
   esac
+echo
+done
   
 for f in /initdbscripts/${ROVERMODE}/*; do
   case "$f" in
@@ -60,9 +62,6 @@ for f in /initdbscripts/${ROVERMODE}/*; do
     ;;
     *)        echo "$0: ignoring $f" ;;
   esac
-echo
-done
-
 echo
 done
 
