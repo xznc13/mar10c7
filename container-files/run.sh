@@ -13,7 +13,6 @@ VOLUME_HOME="/var/lib/mysql"
 ERROR_LOG="$VOLUME_HOME/error.log"
 MYSQLD_PID_FILE="$VOLUME_HOME/mysql.pid"
 
-/usr/sbin/sshd
 # Trap INT and TERM signals to do clean DB shutdown
 trap terminate_db SIGINT SIGTERM
 
